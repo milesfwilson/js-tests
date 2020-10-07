@@ -105,17 +105,24 @@ let flights = [{
 }]
 
 
-function flightCost(destination, firstClass) {
-    let newDestination = destination.toUpperCase()
+// function flightCost(destination, firstClass) {
+//     let newDestination = destination.toUpperCase()
 
-    for (let i = 0; i < flights.length; ++i) {
-        if (flights[i]['to'] === newDestination && firstClass) {
-            return flights[i]['prices']['firstClass']
-        } else if (flights[i]['to'] === newDestination && !firstClass) {
-            return flightPrice = flights[i]['prices']['standard']
-        } else {
-        }
-    }
+//     for (let i = 0; i < flights.length; ++i) {
+//         if (flights[i]['to'] === newDestination && firstClass) {
+//             return flights[i]['prices']['firstClass']
+//         } else if (flights[i]['to'] === newDestination && !firstClass) {
+//             return flightPrice = flights[i]['prices']['standard']
+//         } else {
+//         }
+//     }
+// }
+
+function flightCost(destination, firstClass) {
+    let flightFound = flights.find(f => f.to.toUpperCase() == destination.toUpperCase())
+    if (firstClass) {
+        return flightFound.prices.firstClass
+    } else return flightFound.prices.standard
 }
 
 
