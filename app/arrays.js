@@ -76,6 +76,20 @@ function arrayFlattener(arr) {
     return finalArray
 }
 
+// function arrayFlattener(arr) {
+//     let arr2 = arr.flat(4)
+//     arr2.forEach((element, i) => {
+//         if (typeof (element) == "object") {
+//             arr2.splice(i, 1)
+//         }
+//     });
+//     return arr2
+// }
+
+// function arrayFlattener(arr) {
+//     return arr.flat(Number.MAX_SAFE_INTEGER).filter(e => typeof e != "object")
+// }
+
 // ------------------------------------------
 
 
@@ -105,25 +119,25 @@ let flights = [{
 }]
 
 
-// function flightCost(destination, firstClass) {
-//     let newDestination = destination.toUpperCase()
-
-//     for (let i = 0; i < flights.length; ++i) {
-//         if (flights[i]['to'] === newDestination && firstClass) {
-//             return flights[i]['prices']['firstClass']
-//         } else if (flights[i]['to'] === newDestination && !firstClass) {
-//             return flightPrice = flights[i]['prices']['standard']
-//         } else {
-//         }
-//     }
-// }
-
 function flightCost(destination, firstClass) {
-    let flightFound = flights.find(f => f.to.toUpperCase() == destination.toUpperCase())
-    if (firstClass) {
-        return flightFound.prices.firstClass
-    } else return flightFound.prices.standard
+    let newDestination = destination.toUpperCase()
+
+    for (let i = 0; i < flights.length; ++i) {
+        if (flights[i]['to'] === newDestination && firstClass) {
+            return flights[i]['prices']['firstClass']
+        } else if (flights[i]['to'] === newDestination && !firstClass) {
+            return flightPrice = flights[i]['prices']['standard']
+        } else {
+        }
+    }
 }
+
+// function flightCost(destination, firstClass) {
+//     let flightFound = flights.find(f => f.to.toUpperCase() == destination.toUpperCase())
+//     if (firstClass) {
+//         return flightFound.prices.firstClass
+//     } else return flightFound.prices.standard
+// }
 
 
 
